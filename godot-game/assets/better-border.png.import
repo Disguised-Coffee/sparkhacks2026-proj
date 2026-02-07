@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dvetymo3nidh"
-path="res://.godot/imported/ornate-wooden-frame-with-rectangular-opening-for-artwork-orgraphy-display-gallery-style-photo.jpeg-972259bd21069630e91594d44a9f1b4e.ctex"
+uid="uid://dn6y0mruahwmb"
+path="res://.godot/imported/better-border.png-7050b41e086dad3bc26ad97f340d51d3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/PixelOffice/ornate-wooden-frame-with-rectangular-opening-for-artwork-orgraphy-display-gallery-style-photo.jpeg"
-dest_files=["res://.godot/imported/ornate-wooden-frame-with-rectangular-opening-for-artwork-orgraphy-display-gallery-style-photo.jpeg-972259bd21069630e91594d44a9f1b4e.ctex"]
+source_file="res://assets/better-border.png"
+dest_files=["res://.godot/imported/better-border.png-7050b41e086dad3bc26ad97f340d51d3.ctex"]
 
 [params]
 
