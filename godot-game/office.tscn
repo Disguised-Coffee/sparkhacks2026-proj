@@ -1,50 +1,54 @@
 [gd_scene format=3 uid="uid://cyx02qsjniqgh"]
 
-[ext_resource type="Texture2D" uid="uid://dvetymo3nidh" path="res://assets/PixelOffice/ornate-wooden-frame-with-rectangular-opening-for-artwork-orgraphy-display-gallery-style-photo.jpeg" id="1_g3mwp"]
+[ext_resource type="Texture2D" uid="uid://dn6y0mruahwmb" path="res://assets/better-border.png" id="1_ei2s5"]
 [ext_resource type="PackedScene" uid="uid://dl0ib2m04nogi" path="res://scene/player.tscn" id="2_ei2s5"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ei2s5"]
+size = Vector2(434.46124, 20)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u8nhc"]
-size = Vector2(575.8664, 87.69234)
+size = Vector2(479.24335, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_43ocd"]
-size = Vector2(500.12225, 89.61542)
+size = Vector2(20, 180.53072)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hsito"]
-size = Vector2(103.240616, 346.53845)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_lcnwv"]
-size = Vector2(97.03932, 304.23077)
+size = Vector2(20, 186.60612)
 
 [node name="office" type="Node2D" unique_id=2110634995]
 
 [node name="borderSprite" type="Sprite2D" parent="." unique_id=1997558621]
-position = Vector2(572.5, 354.99994)
-scale = Vector2(2.2576, 2.6)
-texture = ExtResource("1_g3mwp")
+position = Vector2(567, 317.00003)
+scale = Vector2(2.7022226, 4.7733335)
+texture = ExtResource("1_ei2s5")
 
 [node name="top-margin" type="StaticBody2D" parent="borderSprite" unique_id=150080183]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="borderSprite/top-margin" unique_id=1722377651]
-position = Vector2(-1.1073608, -147.69229)
-shape = SubResource("RectangleShape2D_u8nhc")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="borderSprite/top-margin" unique_id=467386581]
+position = Vector2(2.9584808, -60.963688)
+scale = Vector2(0.9999999, 0.9999998)
+shape = SubResource("RectangleShape2D_ei2s5")
 
 [node name="bottom-margin" type="StaticBody2D" parent="borderSprite" unique_id=843539036]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="borderSprite/bottom-margin" unique_id=89858419]
-position = Vector2(4.208008, 149.61542)
-shape = SubResource("RectangleShape2D_43ocd")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="borderSprite/bottom-margin" unique_id=1738519556]
+position = Vector2(5.55101, 65.78211)
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_u8nhc")
 
 [node name="left-margin" type="StaticBody2D" parent="borderSprite" unique_id=1370463534]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="borderSprite/left-margin" unique_id=288193401]
-position = Vector2(-290.3526, 7.307724)
-shape = SubResource("RectangleShape2D_hsito")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="borderSprite/left-margin" unique_id=1931764757]
+position = Vector2(-210.5674, -9.008385)
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_43ocd")
 
 [node name="right-margin" type="StaticBody2D" parent="borderSprite" unique_id=75520305]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="borderSprite/right-margin" unique_id=2056238066]
-position = Vector2(289.46667, 6.5384827)
-shape = SubResource("RectangleShape2D_lcnwv")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="borderSprite/right-margin" unique_id=1188701231]
+position = Vector2(213.89798, 1.2569733)
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_hsito")
 
 [node name="Player" parent="." unique_id=910786864 instance=ExtResource("2_ei2s5")]
 position = Vector2(497, 325)
