@@ -3,6 +3,9 @@
 [ext_resource type="Script" uid="uid://coqro2h35xhue" path="res://scene/player.gd" id="1_hjaqi"]
 [ext_resource type="Texture2D" uid="uid://dygo0a7d1ci16" path="res://assets/PixelOffice/Warrior_Blue.png" id="1_xo3ru"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_hjaqi"]
+radius = 19.0
+
 [sub_resource type="Animation" id="Animation_hjaqi"]
 length = 0.001
 tracks/0/type = "value"
@@ -81,10 +84,8 @@ states/run/node = SubResource("AnimationNodeAnimation_hp4bs")
 states/run/position = Vector2(511, 70.5)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_g2vtq"), "idle", "run", SubResource("AnimationNodeStateMachineTransition_2fvbb"), "run", "idle", SubResource("AnimationNodeStateMachineTransition_ml7e8")]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_hjaqi"]
-radius = 42.0119
-
 [node name="Player" type="CharacterBody2D" unique_id=910786864]
+position = Vector2(0, -32)
 script = ExtResource("1_hjaqi")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1514002591]
@@ -92,12 +93,13 @@ texture = ExtResource("1_xo3ru")
 hframes = 6
 vframes = 8
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1804168060]
+position = Vector2(0, 18)
+shape = SubResource("CircleShape2D_hjaqi")
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=470322757]
 libraries/ = SubResource("AnimationLibrary_s4jxa")
 
 [node name="AnimationTree" type="AnimationTree" parent="." unique_id=507462673]
 tree_root = SubResource("AnimationNodeStateMachine_ihjo1")
 anim_player = NodePath("../AnimationPlayer")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1804168060]
-shape = SubResource("CircleShape2D_hjaqi")
