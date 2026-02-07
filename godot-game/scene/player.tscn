@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://dl0ib2m04nogi"]
 
 [ext_resource type="Script" uid="uid://coqro2h35xhue" path="res://scene/player.gd" id="1_hjaqi"]
-[ext_resource type="Texture2D" uid="uid://dygo0a7d1ci16" path="res://assets/PixelOffice/Warrior_Blue.png" id="1_xo3ru"]
+[ext_resource type="Texture2D" uid="uid://bpirj5agkbg8h" path="res://assets/PixelOffice/Walk_Sprite_Sheet_Intern_Without_Border.png" id="2_hjaqi"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hjaqi"]
-radius = 19.0
+radius = 14.0
 
 [sub_resource type="Animation" id="Animation_hjaqi"]
 length = 0.001
@@ -23,7 +23,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_fvtld"]
 resource_name = "idle"
-length = 0.6
+length = 0.4
 loop_mode = 1
 step = 0.1
 tracks/0/type = "value"
@@ -33,17 +33,17 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"times": PackedFloat32Array(0, 0.10056545, 0.2, 0.3, 0.4, 0.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [0, 1, 2, 3, 4, 5]
+"values": [0, 0, 0, 0, 4, 5]
 }
 
 [sub_resource type="Animation" id="Animation_ct4mp"]
 resource_name = "run"
-length = 0.6
+length = 0.4
 loop_mode = 1
-step = 0.1
+step = 1.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -51,10 +51,10 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [6, 7, 8, 9, 10, 11]
+"values": [0, 1, 2, 3]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_s4jxa"]
@@ -89,9 +89,9 @@ position = Vector2(0, -32)
 script = ExtResource("1_hjaqi")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1514002591]
-texture = ExtResource("1_xo3ru")
-hframes = 6
-vframes = 8
+position = Vector2(2, 17)
+texture = ExtResource("2_hjaqi")
+hframes = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1804168060]
 position = Vector2(0, 18)

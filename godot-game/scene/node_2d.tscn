@@ -1,0 +1,103 @@
+[gd_scene format=3 uid="uid://bakrh2i5wfnfk"]
+
+[ext_resource type="Texture2D" uid="uid://bpirj5agkbg8h" path="res://assets/PixelOffice/Walk_Sprite_Sheet_Intern_Without_Border.png" id="1_drhme"]
+[ext_resource type="Script" uid="uid://cbik64ywdajnv" path="res://scene/node_2d.gd" id="1_guiot"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_guiot"]
+
+[sub_resource type="Animation" id="Animation_ppd22"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_3cebx"]
+resource_name = "idle"
+length = 0.4
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.10261661, 0.20236282, 0.30569702),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 0, 0, 0]
+}
+
+[sub_resource type="Animation" id="Animation_tytcy"]
+resource_name = "run"
+length = 0.4
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_462ap"]
+_data = {
+&"RESET": SubResource("Animation_ppd22"),
+&"idle": SubResource("Animation_3cebx"),
+&"run": SubResource("Animation_tytcy")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_5qbti"]
+animation = &"idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_gvr3l"]
+animation = &"run"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_k01lb"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_cb6ix"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_42d7r"]
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_sypnp"]
+states/idle/node = SubResource("AnimationNodeAnimation_5qbti")
+states/idle/position = Vector2(364.5, 86)
+states/run/node = SubResource("AnimationNodeAnimation_gvr3l")
+states/run/position = Vector2(526.5, 93)
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_k01lb"), "idle", "run", SubResource("AnimationNodeStateMachineTransition_cb6ix"), "run", "idle", SubResource("AnimationNodeStateMachineTransition_42d7r")]
+
+[node name="Node2D" type="CharacterBody2D" unique_id=762382174]
+script = ExtResource("1_guiot")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1998205114]
+position = Vector2(2, -15)
+texture = ExtResource("1_drhme")
+hframes = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1052658043]
+position = Vector2(0, -11)
+shape = SubResource("CircleShape2D_guiot")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=65147553]
+libraries/ = SubResource("AnimationLibrary_462ap")
+
+[node name="AnimationTree" type="AnimationTree" parent="." unique_id=520015943]
+tree_root = SubResource("AnimationNodeStateMachine_sypnp")
+anim_player = NodePath("../AnimationPlayer")

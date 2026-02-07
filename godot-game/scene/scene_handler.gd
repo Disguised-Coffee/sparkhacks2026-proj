@@ -1,6 +1,7 @@
 extends Node
 
 @export var main_menu_packed: PackedScene
+@export var game_scene_packed: PackedScene
 
 func _ready() -> void:
 	load_main_menu("game_start")
