@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://c0rtpkd8v5jbm"]
+
+[ext_resource type="Texture2D" uid="uid://cah2rj6meucwm" path="res://assets/Project_Finished_Screen.png" id="1_sjwl6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bb8w1"]
+size = Vector2(636.6129, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7h2kt"]
+size = Vector2(508.94543, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6npsa"]
+size = Vector2(40.334976, 198.01656)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gupbl"]
+size = Vector2(42.568237, 232.10747)
+
+[node name="Victory" type="Node2D" unique_id=2034167665]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=140908564]
+position = Vector2(570.5, 316.99997)
+texture = ExtResource("1_sjwl6")
+
+[node name="margintop" type="StaticBody2D" parent="Sprite2D" unique_id=1455715210]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/margintop" unique_id=745635541]
+position = Vector2(28.473942, -61.570248)
+shape = SubResource("RectangleShape2D_bb8w1")
+
+[node name="marginbottom" type="StaticBody2D" parent="Sprite2D" unique_id=559299082]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/marginbottom" unique_id=1947063921]
+position = Vector2(11.724564, 66.115715)
+shape = SubResource("RectangleShape2D_7h2kt")
+
+[node name="marginleft" type="StaticBody2D" parent="Sprite2D" unique_id=1973866315]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/marginleft" unique_id=96872451]
+position = Vector2(-219.41689, -3.5123901)
+shape = SubResource("RectangleShape2D_6npsa")
+
+[node name="marginright" type="StaticBody2D" parent="Sprite2D" unique_id=41108971]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/marginright" unique_id=2089338859]
+position = Vector2(225.37221, -8.264458)
+shape = SubResource("RectangleShape2D_gupbl")

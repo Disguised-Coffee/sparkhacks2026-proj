@@ -22,10 +22,22 @@ func convertMins(seconds):
 	var timeSecs:= str(seconds%60)
 	$ProjectDue/ProjectTime.text = str(timeMins) + \":\" + timeSecs
 
+var game_ended := false
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if game_ended:
+		return
+	
 	$stressbar.value += 2.2 * delta
 	convertMins(int($Deadline.time_left))
+	
+	if $projectbar.value >= 100:
+		game_ended = true
+		get_tree().change_scene_to_file(\"res://scene/Victory.tscn\")
+
+	elif $stressbar.value >= 100:
+		game_ended = true
+		get_tree().change_scene_to_file(\"res://scene/GameOver.tscn\")
 	
 "
 
