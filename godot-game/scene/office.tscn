@@ -1,10 +1,11 @@
-[gd_scene format=3 uid="uid://cyx02qsjniqgh"]
+[gd_scene format=3 uid="uid://p50xyh0vbp6c"]
 
 [ext_resource type="Texture2D" uid="uid://dn6y0mruahwmb" path="res://assets/better-border.png" id="1_ei2s5"]
 [ext_resource type="Texture2D" uid="uid://dcmf5wal7b6vo" path="res://assets/kenney_ui-pack-space-expansion/PNG/Yellow/Default/bar_round_gloss_large.png" id="3_eglr7"]
 [ext_resource type="PackedScene" uid="uid://bakrh2i5wfnfk" path="res://scene/node_2d.tscn" id="4_uvqaq"]
 [ext_resource type="Texture2D" uid="uid://bf5cxnakcd3mk" path="res://assets/kenney_ui-pack-space-expansion/PNG/Red/Default/bar_round_gloss_large.png" id="4_wk7dr"]
 [ext_resource type="Texture2D" uid="uid://dopn44v2dkx32" path="res://assets/PixelOffice/computer.webp" id="5_wk7dr"]
+[ext_resource type="Script" uid="uid://byiqnvieika3s" path="res://scene/computer.gd" id="6_3fjca"]
 [ext_resource type="FontFile" uid="uid://m5o0bsefr2t5" path="res://assets/Pixelify_Sans/PixelifySans-VariableFont_wght.ttf" id="6_iboqp"]
 
 [sub_resource type="GDScript" id="GDScript_nwkqs"]
@@ -46,6 +47,12 @@ texture = ExtResource("3_eglr7")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3fjca"]
 texture = ExtResource("4_wk7dr")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_feqpg"]
+size = Vector2(155, 148)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_iboqp"]
+radius = 25.019993
 
 [node name="office" type="Node2D" unique_id=402338014]
 script = SubResource("GDScript_nwkqs")
@@ -142,6 +149,29 @@ texture_pressed = ExtResource("5_wk7dr")
 texture_hover = ExtResource("5_wk7dr")
 stretch_mode = 0
 
+[node name="computer" type="Area2D" parent="Replay" unique_id=1895602966]
+script = ExtResource("6_3fjca")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Replay/computer" unique_id=662036748]
+position = Vector2(36, 32)
+shape = SubResource("RectangleShape2D_feqpg")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Replay/computer" unique_id=1804967221]
+position = Vector2(34, 33)
+shape = SubResource("CircleShape2D_iboqp")
+
+[node name="wordLabel" type="Label" parent="Replay/computer" unique_id=1675411237]
+custom_minimum_size = Vector2(50, 30)
+offset_left = -435.0
+offset_top = 162.0
+offset_right = 373.0
+offset_bottom = 306.0
+theme_override_font_sizes/font_size = 60
+
+[node name="userText" type="LineEdit" parent="Replay/computer" unique_id=246453119]
+offset_right = 68.5
+offset_bottom = 31.0
+
 [node name="Label" type="Label" parent="Replay" unique_id=1788050936]
 custom_minimum_size = Vector2(0, 120)
 layout_mode = 1
@@ -157,3 +187,7 @@ theme_override_fonts/font = ExtResource("6_iboqp")
 theme_override_font_sizes/font_size = 45
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[connection signal="body_entered" from="Replay/computer" to="Replay/computer" method="_on_body_entered"]
+[connection signal="body_exited" from="Replay/computer" to="Replay/computer" method="_on_body_exited"]
+[connection signal="text_submitted" from="Replay/computer/userText" to="Replay/computer" method="_on_user_text_text_submitted"]
