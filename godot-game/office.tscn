@@ -1,10 +1,9 @@
-[gd_scene format=3 uid="uid://cyx02qsjniqgh"]
+[gd_scene format=3 uid="uid://c8aoqqbwlie3s"]
 
 [ext_resource type="Texture2D" uid="uid://dn6y0mruahwmb" path="res://assets/better-border.png" id="1_ei2s5"]
 [ext_resource type="PackedScene" uid="uid://dl0ib2m04nogi" path="res://scene/player.tscn" id="2_ei2s5"]
-[ext_resource type="PackedScene" uid="uid://dvipo8ncjo2kk" path="res://project_completion_bar.tscn" id="3_43ocd"]
+[ext_resource type="PackedScene" path="res://project_completion_bar.tscn" id="3_43ocd"]
 [ext_resource type="PackedScene" uid="uid://drvxucx5ws8qs" path="res://stress_lvl.tscn" id="4_hsito"]
-[ext_resource type="Script" uid="uid://dm305ic2npfxp" path="res://stress_lvl.gd" id="5_lcnwv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ei2s5"]
 size = Vector2(434.46124, 20)
@@ -63,8 +62,7 @@ offset_right = 462.0
 offset_bottom = 57.0
 
 [node name="stressLvl" parent="." unique_id=717945751 instance=ExtResource("4_hsito")]
-offset_left = 504.0
-offset_top = 29.0
-offset_right = 949.0
-offset_bottom = 56.0
-script = ExtResource("5_lcnwv")
+offset_left = 469.0
+offset_top = 30.0
+offset_right = 914.0
+offset_bottom = 57.0
