@@ -1,68 +1,110 @@
-[gd_scene format=3 uid="uid://c8aoqqbwlie3s"]
+[gd_scene format=3 uid="uid://p50xyh0vbp6c"]
 
 [ext_resource type="Texture2D" uid="uid://dn6y0mruahwmb" path="res://assets/better-border.png" id="1_ei2s5"]
-[ext_resource type="PackedScene" uid="uid://dl0ib2m04nogi" path="res://scene/player.tscn" id="2_ei2s5"]
-[ext_resource type="PackedScene" path="res://project_completion_bar.tscn" id="3_43ocd"]
-[ext_resource type="PackedScene" uid="uid://drvxucx5ws8qs" path="res://stress_lvl.tscn" id="4_hsito"]
+[ext_resource type="Texture2D" uid="uid://dcmf5wal7b6vo" path="res://assets/kenney_ui-pack-space-expansion/PNG/Yellow/Default/bar_round_gloss_large.png" id="3_eglr7"]
+[ext_resource type="Texture2D" uid="uid://bf5cxnakcd3mk" path="res://assets/kenney_ui-pack-space-expansion/PNG/Red/Default/bar_round_gloss_large.png" id="4_wk7dr"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ei2s5"]
-size = Vector2(434.46124, 20)
+[sub_resource type="GDScript" id="GDScript_nwkqs"]
+script/source = "extends Node2D
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_u8nhc"]
-size = Vector2(479.24335, 20)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_43ocd"]
-size = Vector2(20, 180.53072)
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	$projectbar.value = 0.0 # Replace with function body.
+	$stressbar.value = 0.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_hsito"]
-size = Vector2(20, 186.60612)
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	$projectbar.value += 1 * delta
+	$stressbar.value += 1 * delta
+"
 
-[node name="office" type="Node2D" unique_id=2110634995]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_riodj"]
+size = Vector2(636.6129, 20)
 
-[node name="borderSprite" type="Sprite2D" parent="." unique_id=1997558621]
-position = Vector2(567, 317.00003)
-scale = Vector2(2.7022226, 4.7733335)
-texture = ExtResource("1_nwkqs")
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pgah7"]
+size = Vector2(508.94543, 20)
 
-[node name="top-margin" type="StaticBody2D" parent="borderSprite" unique_id=150080183]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nwkqs"]
+size = Vector2(40.334976, 198.01656)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="borderSprite/top-margin" unique_id=467386581]
-position = Vector2(2.9584808, -60.963688)
-scale = Vector2(0.9999999, 0.9999998)
-shape = SubResource("RectangleShape2D_ei2s5")
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uvqaq"]
+size = Vector2(42.568237, 232.10747)
 
-[node name="bottom-margin" type="StaticBody2D" parent="borderSprite" unique_id=843539036]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_iboqp"]
+texture = ExtResource("3_eglr7")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="borderSprite/bottom-margin" unique_id=1738519556]
-position = Vector2(5.55101, 65.78211)
-scale = Vector2(0.99999994, 0.99999994)
-shape = SubResource("RectangleShape2D_u8nhc")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3fjca"]
+texture = ExtResource("4_wk7dr")
 
-[node name="left-margin" type="StaticBody2D" parent="borderSprite" unique_id=1370463534]
+[node name="office" type="Node2D" unique_id=402338014]
+script = SubResource("GDScript_nwkqs")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="borderSprite/left-margin" unique_id=1931764757]
-position = Vector2(-210.5674, -9.008385)
-scale = Vector2(0.99999994, 0.99999994)
-shape = SubResource("RectangleShape2D_43ocd")
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=317940937]
+position = Vector2(570.5, 316.99997)
+scale = Vector2(2.6866667, 4.8399997)
+texture = ExtResource("1_ei2s5")
 
-[node name="right-margin" type="StaticBody2D" parent="borderSprite" unique_id=75520305]
+[node name="margintop" type="StaticBody2D" parent="Sprite2D" unique_id=1264200314]
+collision_layer = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="borderSprite/right-margin" unique_id=1188701231]
-position = Vector2(213.89798, 1.2569733)
-scale = Vector2(0.99999994, 0.99999994)
-shape = SubResource("RectangleShape2D_hsito")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/margintop" unique_id=32092013]
+position = Vector2(28.473942, -61.570248)
+shape = SubResource("RectangleShape2D_riodj")
 
-[node name="Player" parent="." unique_id=910786864 instance=ExtResource("2_uvqaq")]
-position = Vector2(497, 325)
+[node name="marginbottom" type="StaticBody2D" parent="Sprite2D" unique_id=859911548]
+collision_layer = 2
 
-[node name="ProjectCompletion" parent="." unique_id=1130625233 instance=ExtResource("3_eglr7")]
-offset_left = 26.0
-offset_top = 30.0
-offset_right = 462.0
-offset_bottom = 57.0
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/marginbottom" unique_id=1902866386]
+position = Vector2(11.724564, 66.115715)
+shape = SubResource("RectangleShape2D_pgah7")
 
-[node name="stressLvl" parent="." unique_id=717945751 instance=ExtResource("4_hsito")]
-offset_left = 469.0
-offset_top = 30.0
-offset_right = 914.0
-offset_bottom = 57.0
+[node name="marginleft" type="StaticBody2D" parent="Sprite2D" unique_id=865775649]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/marginleft" unique_id=1402841329]
+position = Vector2(-219.41689, -3.5123901)
+shape = SubResource("RectangleShape2D_nwkqs")
+
+[node name="marginright" type="StaticBody2D" parent="Sprite2D" unique_id=19148451]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/marginright" unique_id=559830232]
+position = Vector2(225.37221, -8.264458)
+shape = SubResource("RectangleShape2D_uvqaq")
+
+[node name="projectbar" type="ProgressBar" parent="." unique_id=690253927]
+offset_left = 52.0
+offset_top = 25.0
+offset_right = 477.0
+offset_bottom = 52.0
+theme_override_styles/fill = SubResource("StyleBoxTexture_iboqp")
+
+[node name="Label" type="Label" parent="projectbar" unique_id=1981903846]
+layout_mode = 0
+offset_left = -9.0
+offset_top = -23.0
+offset_right = 144.0
+text = "Project Completion:"
+
+[node name="stressbar" type="ProgressBar" parent="." unique_id=371012417]
+offset_left = 486.0
+offset_top = 25.0
+offset_right = 904.0
+offset_bottom = 52.0
+theme_override_styles/fill = SubResource("StyleBoxTexture_3fjca")
+
+[node name="Label" type="Label" parent="stressbar" unique_id=1069277733]
+layout_mode = 0
+offset_left = 9.0
+offset_top = -23.0
+offset_right = 61.0
+text = "Stress:"
+
+[node name="Label" type="Label" parent="." unique_id=1351075574]
+offset_left = 964.0
+offset_top = 2.0
+offset_right = 1079.0
+offset_bottom = 25.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+text = "Project DUE in:"
