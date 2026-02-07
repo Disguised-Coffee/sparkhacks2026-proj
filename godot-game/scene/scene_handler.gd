@@ -1,11 +1,20 @@
 extends Node
 
+@export var main_menu_packed: PackedScene
+@export var game_scene_packed: PackedScene
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	load_main_menu("game_start")
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func load_main_menu(origin: String) -> void:
+	var main_menu: Control = main_menu_packed.instantiate()
+	main_menu.start_game_pressed.connect(start_game)
+	main_menu.exit_pressed.connect(exit_game)
+	add_child(main_menu)
+
+func start_game(origin:String) -> void:
 	pass
+
+func exit_game(_origin: String) -> void:
+	get_tree().quit()
