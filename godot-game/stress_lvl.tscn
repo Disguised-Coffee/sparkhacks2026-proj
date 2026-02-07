@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://drvxucx5ws8qs"]
+
+[ext_resource type="Texture2D" uid="uid://bf5cxnakcd3mk" path="res://assets/kenney_ui-pack-space-expansion/PNG/Red/Default/bar_round_gloss_large.png" id="1_qlgix"]
+[ext_resource type="Script" uid="uid://dm305ic2npfxp" path="res://stress_lvl.gd" id="2_cmdb5"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7y0dt"]
+texture = ExtResource("1_qlgix")
+
+[node name="stressLvl" type="ProgressBar" unique_id=717945751]
+offset_right = 218.0
+offset_bottom = 27.0
+theme_override_styles/fill = SubResource("StyleBoxTexture_7y0dt")
+script = ExtResource("2_cmdb5")
+
+[node name="Label" type="Label" parent="." unique_id=911974607]
+layout_mode = 0
+offset_left = 83.0
+offset_top = -25.0
+offset_right = 135.0
+offset_bottom = -2.0
+text = "Stress:"
