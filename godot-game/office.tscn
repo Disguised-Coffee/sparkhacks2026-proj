@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://cyx02qsjniqgh"]
+
+[ext_resource type="Texture2D" uid="uid://dvetymo3nidh" path="res://assets/PixelOffice/ornate-wooden-frame-with-rectangular-opening-for-artwork-orgraphy-display-gallery-style-photo.jpeg" id="1_g3mwp"]
+
+[node name="office" type="Node2D" unique_id=2110634995]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1997558621]
+position = Vector2(572.5, 354.99994)
+scale = Vector2(2.2576, 2.6)
+texture = ExtResource("1_g3mwp")
