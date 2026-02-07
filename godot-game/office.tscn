@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dn6y0mruahwmb" path="res://assets/better-border.png" id="1_ei2s5"]
 [ext_resource type="PackedScene" uid="uid://dl0ib2m04nogi" path="res://scene/player.tscn" id="2_ei2s5"]
+[ext_resource type="PackedScene" uid="uid://dvipo8ncjo2kk" path="res://project_completion_bar.tscn" id="3_43ocd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ei2s5"]
 size = Vector2(434.46124, 20)
@@ -52,3 +53,9 @@ shape = SubResource("RectangleShape2D_hsito")
 
 [node name="Player" parent="." unique_id=910786864 instance=ExtResource("2_ei2s5")]
 position = Vector2(497, 325)
+
+[node name="ProjectCompletion" parent="." unique_id=1130625233 instance=ExtResource("3_43ocd")]
+offset_left = 26.0
+offset_top = 30.0
+offset_right = 462.0
+offset_bottom = 57.0
