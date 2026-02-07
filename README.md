@@ -6,5 +6,10 @@
 - Godot Leads: Emilio Calvo and Jeonghwan Park
 
 ### Description:
-You are an intern working at an office on a project, ***but the deadline is today!*** Finish the project while avoiding burnout to win!
-The main premise of this game is to acknowledge stress and mental health in a relatable environment. Many who participated in this year's SparkHacks know the pressure of a project's deadline, and we wanted to convey the message of taking care of yourself in a fast-paced, stressful workplace. To finish the project on time and beat the game, you must complete your project by typing in words at your computer while managing your burnout meter, which increases while working. You can lower this burnout by stepping away from the screen and taking breaks. These are vital both in-game and in real life, and we hope to convey the importance of breaks while working.
+You've been assigned your first project at your new internship, ***but the deadline is today!*** Finish the project while avoiding burnout to win!
+
+**Workaholic** is a short narrative game where you play as a computer science intern racing to finish an important project on the day of the deadline. As the clock ticks down, you must balance productivity with self‑care in a high‑pressure office environment.
+
+The core gameplay loop centers on typing relevant work‑themed words at your computer to fill a project progress bar before time runs out. However, working too hard too quickly raises your burnout meter. To succeed, you’ll need to periodically step away from the screen and take breaks to bring your burnout back down.
+
+Our goal with Workaholic is to _highlight the importance of mental health and sustainable work habits_, especially in tech-related and academic settings. Many participants in SparkHacks 2026 are familiar with tight deadlines and late‑night coding sessions; this game reflects that experience while encouraging players to recognize when they need to pause, reset, and return with a clearer mind—both in‑game and in real life.
