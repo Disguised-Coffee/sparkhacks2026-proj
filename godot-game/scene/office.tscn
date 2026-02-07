@@ -1,9 +1,23 @@
 [gd_scene format=3 uid="uid://p50xyh0vbp6c"]
 
 [ext_resource type="Texture2D" uid="uid://dn6y0mruahwmb" path="res://assets/better-border.png" id="1_ei2s5"]
-[ext_resource type="Script" path="res://scene/office.gd" id="1_uvqaq"]
 [ext_resource type="Texture2D" uid="uid://dcmf5wal7b6vo" path="res://assets/kenney_ui-pack-space-expansion/PNG/Yellow/Default/bar_round_gloss_large.png" id="3_eglr7"]
 [ext_resource type="Texture2D" uid="uid://bf5cxnakcd3mk" path="res://assets/kenney_ui-pack-space-expansion/PNG/Red/Default/bar_round_gloss_large.png" id="4_wk7dr"]
+
+[sub_resource type="GDScript" id="GDScript_nwkqs"]
+script/source = "extends Node2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	$projectbar.value = 0.0 # Replace with function body.
+	$stressbar.value = 0.0
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	$projectbar.value += 1 * delta
+	$stressbar.value += 1 * delta
+"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_riodj"]
 size = Vector2(636.6129, 20)
@@ -24,7 +38,7 @@ texture = ExtResource("3_eglr7")
 texture = ExtResource("4_wk7dr")
 
 [node name="office" type="Node2D" unique_id=402338014]
-script = ExtResource("1_uvqaq")
+script = SubResource("GDScript_nwkqs")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=317940937]
 position = Vector2(570.5, 316.99997)
