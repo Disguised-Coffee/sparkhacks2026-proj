@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://dvipo8ncjo2kk"]
+
+[ext_resource type="Texture2D" uid="uid://dsticg1vas8iy" path="res://assets/kenney_ui-pack-space-expansion/Vector/Yellow/bar_round_gloss_large.svg" id="1_qbf22"]
+[ext_resource type="Script" uid="uid://clf2ygepii7i0" path="res://project_completion_bar.gd" id="2_th32f"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pxop8"]
+texture = ExtResource("1_qbf22")
+
+[node name="ProjectCompletion" type="ProgressBar" unique_id=862521221]
+offset_right = 218.0
+offset_bottom = 27.0
+theme_override_styles/fill = SubResource("StyleBoxTexture_pxop8")
+script = ExtResource("2_th32f")
+
+[node name="Label" type="Label" parent="." unique_id=350606071]
+layout_mode = 0
+offset_left = 33.0
+offset_top = -25.0
+offset_right = 186.0
+offset_bottom = -2.0
+text = "Project Completion:"
