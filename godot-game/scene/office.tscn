@@ -24,7 +24,7 @@ func convertMins(seconds):
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	$stressbar.value += 2.5 * delta
+	$stressbar.value += 2.2 * delta
 	convertMins(int($Deadline.time_left))
 	
 "
