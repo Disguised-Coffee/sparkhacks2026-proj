@@ -11,8 +11,8 @@ function App() {
       <iframe
         src="godot/godot-game.html"
         style={{ width: "100%", height: "600px", border: "none" }}></iframe>
-
       <p className="read-the-docs">Click on the Vite and React logos to learn more</p>
+      blah
     </>
   );
 }
