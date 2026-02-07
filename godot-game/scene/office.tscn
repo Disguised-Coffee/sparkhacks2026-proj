@@ -12,11 +12,18 @@ script/source = "extends Node2D
 func _ready() -> void:
 	$projectbar.value = 0.0 # Replace with function body.
 	$stressbar.value = 0.0
+	
+func convertMins(seconds):
+	var timeMins:= int (seconds/60)
+	var timeSecs:= str(seconds%60)
+	$ProjectDue/ProjectTime.text = str(timeMins) + \":\" + timeSecs
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	$projectbar.value += 1 * delta
 	$stressbar.value += 1 * delta
+	convertMins(int($Deadline.time_left))
+	
 "
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_riodj"]
@@ -101,10 +108,22 @@ offset_top = -23.0
 offset_right = 61.0
 text = "Stress:"
 
-[node name="Label" type="Label" parent="." unique_id=1351075574]
+[node name="ProjectDue" type="Label" parent="." unique_id=1351075574]
 offset_left = 964.0
 offset_top = 2.0
 offset_right = 1079.0
 offset_bottom = 25.0
 theme_override_colors/font_color = Color(1, 0, 0, 1)
 text = "Project DUE in:"
+
+[node name="ProjectTime" type="Label" parent="ProjectDue" unique_id=1694906744]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 26.0
+offset_right = 137.0
+offset_bottom = 54.0
+
+[node name="Deadline" type="Timer" parent="." unique_id=2139683144]
+wait_time = 300.0
+one_shot = true
+autostart = true
