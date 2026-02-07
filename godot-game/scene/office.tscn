@@ -1,10 +1,11 @@
-[gd_scene format=3 uid="uid://p50xyh0vbp6c"]
+[gd_scene format=3 uid="uid://cyx02qsjniqgh"]
 
 [ext_resource type="Texture2D" uid="uid://dn6y0mruahwmb" path="res://assets/better-border.png" id="1_ei2s5"]
 [ext_resource type="Texture2D" uid="uid://dcmf5wal7b6vo" path="res://assets/kenney_ui-pack-space-expansion/PNG/Yellow/Default/bar_round_gloss_large.png" id="3_eglr7"]
-[ext_resource type="Script" uid="uid://uoleyif5j0b" path="res://scene/player_ex.gd" id="4_eglr7"]
+[ext_resource type="PackedScene" uid="uid://bakrh2i5wfnfk" path="res://scene/node_2d.tscn" id="4_uvqaq"]
 [ext_resource type="Texture2D" uid="uid://bf5cxnakcd3mk" path="res://assets/kenney_ui-pack-space-expansion/PNG/Red/Default/bar_round_gloss_large.png" id="4_wk7dr"]
-[ext_resource type="Texture2D" uid="uid://c4tq4tdw57282" path="res://assets/Sprite-0001.png" id="5_wk7dr"]
+[ext_resource type="Texture2D" uid="uid://dopn44v2dkx32" path="res://assets/PixelOffice/computer.webp" id="5_wk7dr"]
+[ext_resource type="FontFile" uid="uid://m5o0bsefr2t5" path="res://assets/Pixelify_Sans/PixelifySans-VariableFont_wght.ttf" id="6_iboqp"]
 
 [sub_resource type="GDScript" id="GDScript_nwkqs"]
 script/source = "extends Node2D
@@ -45,10 +46,6 @@ texture = ExtResource("3_eglr7")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3fjca"]
 texture = ExtResource("4_wk7dr")
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_iboqp"]
-radius = 18.0
-height = 72.0
 
 [node name="office" type="Node2D" unique_id=402338014]
 script = SubResource("GDScript_nwkqs")
@@ -130,14 +127,33 @@ wait_time = 300.0
 one_shot = true
 autostart = true
 
-[node name="playerEx" type="CharacterBody2D" parent="." unique_id=1709226157]
-script = ExtResource("4_eglr7")
+[node name="Node2D" parent="." unique_id=762382174 instance=ExtResource("4_uvqaq")]
+position = Vector2(497, 306)
+scale = Vector2(3, 3)
 
-[node name="Sprite2D" type="Sprite2D" parent="playerEx" unique_id=1356474641]
-position = Vector2(477, 329)
-scale = Vector2(1.9687498, 2.546875)
-texture = ExtResource("5_wk7dr")
+[node name="Replay" type="TextureButton" parent="." unique_id=1409988507]
+offset_left = 603.0
+offset_top = 227.0
+offset_right = 673.0
+offset_bottom = 287.0
+size_flags_horizontal = 4
+texture_normal = ExtResource("5_wk7dr")
+texture_pressed = ExtResource("5_wk7dr")
+texture_hover = ExtResource("5_wk7dr")
+stretch_mode = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="playerEx" unique_id=432620045]
-position = Vector2(477, 334)
-shape = SubResource("CapsuleShape2D_iboqp")
+[node name="Label" type="Label" parent="Replay" unique_id=1788050936]
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 120.0
+grow_horizontal = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.3254902)
+theme_override_colors/font_outline_color = Color(0.27935672, 0.27935672, 0.27935672, 1)
+theme_override_constants/outline_size = 6
+theme_override_constants/shadow_outline_size = 12
+theme_override_fonts/font = ExtResource("6_iboqp")
+theme_override_font_sizes/font_size = 45
+horizontal_alignment = 1
+vertical_alignment = 1
