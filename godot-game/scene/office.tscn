@@ -22,7 +22,7 @@ size = Vector2(20, 186.60612)
 [node name="borderSprite" type="Sprite2D" parent="." unique_id=1997558621]
 position = Vector2(567, 317.00003)
 scale = Vector2(2.7022226, 4.7733335)
-texture = ExtResource("1_ei2s5")
+texture = ExtResource("1_nwkqs")
 
 [node name="top-margin" type="StaticBody2D" parent="borderSprite" unique_id=150080183]
 
@@ -52,10 +52,10 @@ position = Vector2(213.89798, 1.2569733)
 scale = Vector2(0.99999994, 0.99999994)
 shape = SubResource("RectangleShape2D_hsito")
 
-[node name="Player" parent="." unique_id=910786864 instance=ExtResource("2_ei2s5")]
+[node name="Player" parent="." unique_id=910786864 instance=ExtResource("2_uvqaq")]
 position = Vector2(497, 325)
 
-[node name="ProjectCompletion" parent="." unique_id=1130625233 instance=ExtResource("3_43ocd")]
+[node name="ProjectCompletion" parent="." unique_id=1130625233 instance=ExtResource("3_eglr7")]
 offset_left = 26.0
 offset_top = 30.0
 offset_right = 462.0
