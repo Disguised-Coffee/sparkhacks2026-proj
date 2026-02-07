@@ -14,7 +14,10 @@ func load_main_menu(origin: String) -> void:
 	add_child(main_menu)
 
 func start_game(origin:String) -> void:
-	pass
+	if origin == "main_menu":
+		get_node("MainMenu").queue_free()
+	var game_scene: Node2D = game_scene_packed.instantiate()
+	add_child(game_scene)
 
 func exit_game(_origin: String) -> void:
 	get_tree().quit()
