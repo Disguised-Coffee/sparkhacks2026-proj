@@ -1,9 +1,11 @@
-# UIC SparkHacks 2026: Workaholic
+# UIC SparkHacks 2026: Workaholic (1st Place)
+
+First Place in Narrative Storytelling in an Interactive Application track at SparkHacks 2026! 🥳🎉
 
 ## Contributors:
-- Deployment Head: Dan Danque
-- Art & Story: Antonio Unabia & Steve Nuevaorlanda
-- Godot Leads: Emilio Calvo and Jeonghwan Park
+- 🚀 Deployment Head: Dan Danque
+- 📖 Art & Story: Antonio Unabia & Steve Nuevaorlanda
+- 👾 Godot Leads: Emilio Calvo and Jeonghwan Park
 
 ## Description:
 You've been assigned your first project at your new internship, ***but the deadline is today!*** Finish the project while avoiding burnout to win!
@@ -19,5 +21,7 @@ Our goal with Workaholic is to _highlight the importance of mental health and su
 - **Game Engine:** Godot
 - **Art Tools:** Aseprite, Photoshop
 
-<sub><sup>This was our first time working with Godot and Aseprite, and it was a huge learning experience for our entire team. We had a lot of fun (even if we were super stressed), and we plan to continue working on this even after SparkHacks! Our biggist regert was not researching our engine and art tools before jumping in, but our passion allowed us to persevere through even these struggles.</sup></sub>
+⚙️ Devpost Link: https://lnkd.in/geaWFqq2
+
+<sub><sup>This was our first time working with Godot and Aseprite, and it was a huge learning experience for our entire team. We had a lot of fun (even if we were super stressed), and we plan to continue working on this even after SparkHacks! Our biggest regret was not researching our engine and art tools before jumping in, but our passion allowed us to persevere through even these struggles.</sup></sub>
 
