@@ -17,9 +17,11 @@ The core gameplay loop centers on typing relevant work‑themed words at your co
 Our goal with Workaholic is to _highlight the importance of mental health and sustainable work habits_, especially in tech-related and academic settings. Many participants in SparkHacks 2026 are familiar with tight deadlines and late‑night coding sessions; this game reflects that experience while encouraging players to recognize when they need to pause, reset, and return with a clearer mind — both in‑game and in real life.
 
 ## Tech Stack
-- **Language:** GDScript, HTML
+- **Languages:** GDScript, Javascript, HTML
 - **Game Engine:** Godot
 - **Art Tools:** Aseprite, Photoshop
+
+Special thanks to the Aedify.AI team for helping set up our project and hosting it!
 
 ⚙️ Devpost Link: https://lnkd.in/geaWFqq2
 
