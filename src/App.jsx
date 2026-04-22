@@ -5,7 +5,7 @@ function Home() {
   return (
     <>
       <iframe
-        src="/godot/godot-game.html"
+        src={`${import.meta.env.BASE_URL}godot/godot-game.html`}
         style={{ width: "80vw", height: "80vh", border: "none" }}></iframe>
       <h1>WORKAHOLIC</h1>
     </>
