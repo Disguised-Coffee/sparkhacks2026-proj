@@ -25,5 +25,7 @@ Special thanks to the Aedify.AI team for helping set up our project and hosting 
 
 ⚙️ Devpost Link: https://lnkd.in/geaWFqq2
 
+Project Demo: https://github.com/user-attachments/assets/95e03bd1-fa13-4ac2-8736-14d380338b71
+
 <sub><sup>This was our first time working with Godot and Aseprite, and it was a huge learning experience for our entire team. We had a lot of fun (even if we were super stressed), and we plan to continue working on this even after SparkHacks! Our biggest regret was not researching our engine and art tools before jumping in, but our passion allowed us to persevere through even these struggles.</sup></sub>
 
