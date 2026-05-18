@@ -49,6 +49,7 @@ https://github.com/user-attachments/assets/95e03bd1-fa13-4ac2-8736-14d380338b71
 | **Game Engine** | Godot |
 | **Languages** | GDScript, JavaScript, HTML |
 | **Art Tools** | Aseprite, Photoshop |
+| **Deployment** | React, Vite |
 
 ---
 
