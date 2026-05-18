@@ -1,6 +1,6 @@
 # UIC SparkHacks 2026: Workaholic (1st Place)
 
-First Place in Narrative Storytelling in an Interactive Application track at SparkHacks 2026! 🥳🎉
+Won First Place in Narrative Storytelling in an Interactive Application track at SparkHacks 2026! 🥳🎉
 
 ## Contributors:
 - 🚀 Deployment Head: Dan Danque
