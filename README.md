@@ -29,7 +29,7 @@
 
 ### 💡 Our Message
 
-Workaholic was built to *highlight the importance of mental health and sustainable work habits*, especially in tech and academic settings. Many SparkHacks 2026 participants know the feeling of tight deadlines and late‑night coding sessions — this game reflects that shared experience while encouraging players to recognize when they need to pause, reset, and return with a clearer mind. Both in‑game, and in real life.
+Workaholic was built to *highlight the importance of mental health and sustainable work habits*, especially in tech and academic settings. Many SparkHacks 2026 participants know the feeling of tight deadlines and late‑night coding sessions. This game reflects that shared experience while encouraging players to recognize when they need to pause, reset, and return with a clearer mind: both in‑game and in real life.
 
 ---
 
