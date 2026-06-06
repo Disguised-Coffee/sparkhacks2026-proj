@@ -13,7 +13,7 @@
   <br/>
 
   [![Play Now](https://img.shields.io/badge/Play%20Now-▶%20Try%20It-4CAF50?style=for-the-badge)](https://disguised-coffee.github.io/sparkhacks2026-proj/) <br>
-  [![Devpost](https://img.shields.io/badge/Devpost-View%20Project-003E54?style=for-the-badge&logo=devpost)](https://lnkd.in/geaWFqq2)
+  [![Devpost](https://img.shields.io/badge/Devpost-View%20Project-003E54?style=for-the-badge&logo=devpost)](https://devpost.com/software/workaholic-30h7g9)
 </div>
 
 ---
