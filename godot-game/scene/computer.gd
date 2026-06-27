@@ -7,7 +7,7 @@ var currWord := ""
 #this is a test
 
 var dict_normal: Array[String] = ["compile", "debug", "commit", "push", "merge", "deploy", "refactor", "optimize", "variable", "function", "class", "object", "module", "import", "export", "package", "library", "framework", "runtime", "sandbox", "frontend", "backend", "database", "schema", "query", "index", "foreign", "primary", "latency", "caching", "feature", "ticket", "backlog", "sprint", "deadline", "milestone", "review", "approve", "feedback", "roadmap", "testing", "unit", "integration", "coverage", "mock", "stub", "staging", "pipeline", "logs", "monitor", "intern", "mentor", "standup", "pairing", "handoff", "spec", "design", "prototype", "iterate", "polish", "keyboard", "terminal", "editor", "cursor", "branch", "revert", "conflict", "resolve", "snapshot", "version", "hacking", "track", "sponsor", "workshop", "submission", "demo", "expo", "idea", "concept", "storyboard", "narrative", "dialog", "choice", "outcome", "progress", "focus", "sprinting", "shipped", "shippedit", "hotfix", "patch", "release", "done", "success", "failure", "retry", "escape"]
-var dict_horror: Array[String] = ["compile", "debug", "commit", "push --force", "merge --force", "deploy", "kill", "optimize", "hello", "function", "class", "object", "module", "import", "export", "package", "backlog", "not by AI", "deadline", "milestone", "review", "disapprove", "feedback", "roadmap", "testing", "I am not a robot", "integration", "coverage", "mock", "stub",  "editor", "family", "revert", "conflict", "resolve", "hacking", "track", "not by AI", "workshop", "submission", "demo", "expo", "why?", "dialog", "abracadabra", "outcome", "progress", "focus", "suffering", "shipped", "did you commit?", "hotfix", "patch", "pain", "done", "success", "failure", "retry", "escape"]
+var dict_horror: Array[String] = ["compile", "debug", "commit", "push --force", "merge --force", "--force", "kill", "optimize", "hello", "function", "class", "object", "regret", "inform", "export", "package", "backlog", "not by AI", "deadline", "milestone", "review", "disapprove", "feedback", "roadmap", "testing", "I am not a robot", "return offer", "coverage", "mock", "unfortunately",  "editor", "family", "revert", "conflict", "resolve", "hacking", "track", "not by AI", "workshop", "submit", "demo", "presentation", "why?", "dialog", "abracadabra", "outcome", "progress", "focus", "suffering", "shipped", "did you commit?", "hotfix", "patch", "pain", "done", "uncertain", "failure", "retry", "escape"]
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -47,8 +47,13 @@ func typingGame():
 	playerStarted = true;
 
 func _on_user_text_text_submitted(new_text: String) -> void:
+	# under higher stress, you are less productive!
+	# (this is supposed to be a big nerf)
 	if new_text == currWord:
-		$"../../projectbar".value += 10
+		if ($"../../CanvasLayer/stressbar".value > 50):
+			$"../../projectbar".value += 4
+		else:
+			$"../../projectbar".value += 10
 	else:
 		$"../../CanvasLayer/stressbar".value += 10
 	reset_state();
