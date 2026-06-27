@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dopn44v2dkx32" path="res://assets/PixelOffice/computer.webp" id="5_wk7dr"]
 [ext_resource type="Script" uid="uid://byiqnvieika3s" path="res://scene/computer.gd" id="6_3fjca"]
 [ext_resource type="FontFile" uid="uid://m5o0bsefr2t5" path="res://assets/Pixelify_Sans/PixelifySans-VariableFont_wght.ttf" id="6_iboqp"]
+[ext_resource type="Texture2D" uid="uid://dh74xcos72j4a" path="res://assets/PixelOffice/PixelOfficeAssets.png" id="8_3fjca"]
 
 [sub_resource type="GDScript" id="GDScript_nwkqs"]
 script/source = "extends Node2D
@@ -53,6 +54,27 @@ size = Vector2(40.334976, 198.01656)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uvqaq"]
 size = Vector2(42.568237, 232.10747)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_feqpg"]
+atlas = ExtResource("8_3fjca")
+region = Rect2(171, 44, 79, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0h62n"]
+atlas = ExtResource("8_3fjca")
+region = Rect2(171, 44, 79, 5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vnthd"]
+size = Vector2(78.73088, 4.6799994)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vnthd"]
+atlas = ExtResource("8_3fjca")
+region = Rect2(207, 63, 4, 27)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ypve7"]
+size = Vector2(3.981121, 24.814098)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4jcat"]
+size = Vector2(3.981121, 4.689272)
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_iboqp"]
 texture = ExtResource("3_eglr7")
 
@@ -60,10 +82,28 @@ texture = ExtResource("3_eglr7")
 texture = ExtResource("4_wk7dr")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_feqpg"]
-size = Vector2(410.75, 385)
+size = Vector2(178.1875, 216)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_iboqp"]
 radius = 25.019993
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bj4t2"]
+atlas = ExtResource("8_3fjca")
+region = Rect2(159, 123, 24, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mqvok"]
+atlas = ExtResource("8_3fjca")
+region = Rect2(159, 123, 24, 14)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bj4t2"]
+size = Vector2(24.08554, 12.253157)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3fjca"]
+atlas = ExtResource("8_3fjca")
+region = Rect2(120, 121, 33, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3fjca"]
+size = Vector2(28.311554, 2.0608559)
 
 [node name="office" type="Node2D" unique_id=402338014]
 script = SubResource("GDScript_nwkqs")
@@ -96,6 +136,70 @@ shape = SubResource("RectangleShape2D_nwkqs")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/marginright" unique_id=559830232]
 position = Vector2(225.37221, -8.264458)
 shape = SubResource("RectangleShape2D_uvqaq")
+
+[node name="cubicle2" type="Sprite2D" parent="." unique_id=2100563475]
+position = Vector2(544.00006, 175.99998)
+scale = Vector2(3.9810243, 6.250003)
+texture = SubResource("AtlasTexture_feqpg")
+
+[node name="Sprite2D" type="Sprite2D" parent="cubicle2" unique_id=429288548]
+z_index = 30
+position = Vector2(-1.5331521e-05, -6.3999944)
+scale = Vector2(1, 1.0000001)
+texture = SubResource("AtlasTexture_0h62n")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="cubicle2" unique_id=1474856538]
+position = Vector2(-28.635841, -1.9199998)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="cubicle2/StaticBody2D" unique_id=895658779]
+position = Vector2(28.887032, -0.41999626)
+scale = Vector2(1.0000006, 1.0000002)
+shape = SubResource("RectangleShape2D_vnthd")
+
+[node name="wall" type="Sprite2D" parent="cubicle2" unique_id=420707903]
+position = Vector2(-1.5166931, 5.6000023)
+scale = Vector2(1.0095369, 0.81888884)
+texture = SubResource("AtlasTexture_vnthd")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="cubicle2/wall" unique_id=881400164]
+position = Vector2(-1.2772639, 0.43761635)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="cubicle2/wall/StaticBody2D" unique_id=1286936076]
+position = Vector2(1.2866974, 0.4416237)
+scale = Vector2(1.0000006, 1.0000002)
+shape = SubResource("RectangleShape2D_ypve7")
+
+[node name="cubicle3" type="Sprite2D" parent="." unique_id=232545380]
+position = Vector2(544, 288)
+scale = Vector2(3.9810243, 6.250003)
+texture = SubResource("AtlasTexture_feqpg")
+
+[node name="Sprite2D" type="Sprite2D" parent="cubicle3" unique_id=564050484]
+z_index = 30
+position = Vector2(-1.5331521e-05, -6.3999944)
+scale = Vector2(1, 1.0000001)
+texture = SubResource("AtlasTexture_0h62n")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="cubicle3" unique_id=1763296318]
+position = Vector2(-28.635841, -1.9199998)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="cubicle3/StaticBody2D" unique_id=1605261264]
+position = Vector2(28.887032, -0.41999626)
+scale = Vector2(1.0000006, 1.0000002)
+shape = SubResource("RectangleShape2D_vnthd")
+
+[node name="wall" type="Sprite2D" parent="cubicle3" unique_id=1901749698]
+position = Vector2(-1.5166931, 5.6000023)
+scale = Vector2(1.0095369, 0.81888884)
+texture = SubResource("AtlasTexture_vnthd")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="cubicle3/wall" unique_id=2039348423]
+position = Vector2(-1.2772639, 0.43761635)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="cubicle3/wall/StaticBody2D" unique_id=756839935]
+position = Vector2(1.2866974, -9.620792)
+scale = Vector2(1.0000006, 1.0000002)
+shape = SubResource("RectangleShape2D_4jcat")
 
 [node name="projectbar" type="ProgressBar" parent="." unique_id=690253927]
 offset_left = 52.0
@@ -146,14 +250,15 @@ one_shot = true
 autostart = true
 
 [node name="Node2D" parent="." unique_id=762382174 instance=ExtResource("4_uvqaq")]
-position = Vector2(497, 306)
+z_index = 10
+position = Vector2(178, 316)
 scale = Vector2(3, 3)
 
 [node name="Replay" type="TextureButton" parent="." unique_id=1409988507]
-offset_left = 603.0
-offset_top = 227.0
-offset_right = 673.0
-offset_bottom = 287.0
+offset_left = 922.0
+offset_top = 245.0
+offset_right = 992.0
+offset_bottom = 305.0
 size_flags_horizontal = 4
 texture_normal = ExtResource("5_wk7dr")
 texture_pressed = ExtResource("5_wk7dr")
@@ -164,7 +269,7 @@ stretch_mode = 0
 script = ExtResource("6_3fjca")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Replay/computer" unique_id=662036748]
-position = Vector2(38, 34)
+position = Vector2(-16.90625, 31)
 shape = SubResource("RectangleShape2D_feqpg")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Replay/computer" unique_id=1804967221]
@@ -173,15 +278,20 @@ shape = SubResource("CircleShape2D_iboqp")
 
 [node name="wordLabel" type="Label" parent="Replay/computer" unique_id=1675411237]
 custom_minimum_size = Vector2(50, 30)
-offset_left = -435.0
-offset_top = 162.0
-offset_right = 373.0
-offset_bottom = 306.0
-theme_override_font_sizes/font_size = 60
+offset_left = -732.0
+offset_top = 215.0
+offset_right = 76.0
+offset_bottom = 359.0
+theme_override_font_sizes/font_size = 30
+text = "Go to your computer and press 'Enter' to start your job"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="userText" type="LineEdit" parent="Replay/computer" unique_id=246453119]
 offset_right = 68.5
 offset_bottom = 31.0
+metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="Replay" unique_id=1788050936]
 custom_minimum_size = Vector2(0, 120)
@@ -198,6 +308,40 @@ theme_override_fonts/font = ExtResource("6_iboqp")
 theme_override_font_sizes/font_size = 45
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="VendingMachine" type="Sprite2D" parent="." unique_id=349353657]
+position = Vector2(463.99997, 344)
+scale = Vector2(5.480466, 4.5702496)
+texture = SubResource("AtlasTexture_bj4t2")
+
+[node name="Sprite2D" type="Sprite2D" parent="VendingMachine" unique_id=1850734465]
+z_index = 15
+position = Vector2(0, -10.065096)
+scale = Vector2(1.0000001, 1.0000001)
+texture = SubResource("AtlasTexture_mqvok")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="VendingMachine" unique_id=1043070292]
+visible = false
+position = Vector2(-1.2772639, 0.43761635)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VendingMachine/StaticBody2D" unique_id=408571388]
+visible = false
+position = Vector2(1.2772522, -1.5316505)
+scale = Vector2(1.0000001, 1.0000001)
+shape = SubResource("RectangleShape2D_bj4t2")
+
+[node name="couch" type="Sprite2D" parent="." unique_id=1437576080]
+position = Vector2(189.99998, 180)
+scale = Vector2(6.18122, 5.9637113)
+texture = SubResource("AtlasTexture_3fjca")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="couch" unique_id=1872680800]
+position = Vector2(-1.2772639, 0.43761635)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="couch/StaticBody2D" unique_id=824880707]
+position = Vector2(1.1947784, -7.336872)
+scale = Vector2(1.0000007, 1.0000001)
+shape = SubResource("RectangleShape2D_3fjca")
 
 [connection signal="body_entered" from="Replay/computer" to="Replay/computer" method="_on_body_entered"]
 [connection signal="body_exited" from="Replay/computer" to="Replay/computer" method="_on_body_exited"]

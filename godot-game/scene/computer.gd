@@ -1,8 +1,10 @@
 extends Area2D
 
-var playerInArea := false
+var playerInArea := false; var playerStarted := false;
 var userWord := ""
 var currWord := ""
+
+#this is a test
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -12,6 +14,11 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if playerInArea and Input.is_action_just_pressed("interact"):
 		typingGame()
+	if not playerInArea and playerStarted:
+		currWord = ""
+		userWord = ""
+		$userText.release_focus()
+		$wordLabel.text = "Go to your computer and press 'Enter'"
 	
 func _on_body_entered(body: Node2D) -> void:
 	if body.name == "Node2D":
@@ -27,11 +34,16 @@ func typingGame():
 	var randInd: int = rng.randi_range(0, 99)
 	$wordLabel.text = dict[randInd]
 	currWord = dict[randInd]
-	$userText.text = ""
-	$userText.grab_focus()
+	reset_state();
+	playerStarted = true;
 
 func _on_user_text_text_submitted(new_text: String) -> void:
 	if new_text == currWord:
 		$"../../projectbar".value += 10
 	else:
 		$"../../stressbar".value += 10
+	reset_state();
+	
+func reset_state():
+	$userText.text = ""
+	$userText.grab_focus()
