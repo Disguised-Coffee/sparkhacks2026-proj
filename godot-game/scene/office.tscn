@@ -8,6 +8,8 @@
 [ext_resource type="Script" uid="uid://byiqnvieika3s" path="res://scene/computer.gd" id="6_3fjca"]
 [ext_resource type="FontFile" uid="uid://m5o0bsefr2t5" path="res://assets/Pixelify_Sans/PixelifySans-VariableFont_wght.ttf" id="6_iboqp"]
 [ext_resource type="Texture2D" uid="uid://dh74xcos72j4a" path="res://assets/PixelOffice/PixelOfficeAssets.png" id="8_3fjca"]
+[ext_resource type="Shader" uid="uid://dngnhxnde2ytv" path="res://scene/viginette.gdshader" id="9_vnthd"]
+[ext_resource type="Script" uid="uid://cerlrxw1gmaqt" path="res://scene/stress_effect.gd" id="10_ypve7"]
 
 [sub_resource type="GDScript" id="GDScript_nwkqs"]
 script/source = "extends Node2D
@@ -16,30 +18,66 @@ script/source = "extends Node2D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$projectbar.value = 0.0 # Replace with function body.
-	$stressbar.value = 0.0
+	$CanvasLayer/stressbar.value = 0.0
 	
 func convertMins(seconds):
 	var timeMins:= int (seconds/60)
 	var timeSecs:= str(seconds%60)
-	$ProjectDue/ProjectTime.text = str(timeMins) + \":\" + timeSecs
+	$CanvasLayer/ProjectDue/ProjectTime.text = str(timeMins) + \":\" + timeSecs
 
 var game_ended := false
+var curr_radius = 1000.0;
+var player_in_safe_zone = true;
+var viginette_active = false;
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	
+	# increment delta to change local time-based variables (doesn't affect actual time)
+	delta += (1 - ($Deadline.time_left / $Deadline.wait_time)) * 0.01;
+	
 	if game_ended:
 		return
+		
+	if viginette_active:
+		if $CanvasLayer/stressbar.value > 50.0:
+			$CanvasLayer/ColorRect.update_vignette_radius(curr_radius);
+			curr_radius = lerp(0.45, 0.75, 0.01)
+	else:
+		if curr_radius != 1000.0:
+			curr_radius += 0.1;
+		$CanvasLayer/ColorRect.update_vignette_radius(curr_radius);
 	
-	$stressbar.value += 2.2 * delta
+	if player_in_safe_zone:
+		$CanvasLayer/stressbar.value =  $CanvasLayer/stressbar.value  - (4.4 * delta) if $CanvasLayer/stressbar.value > 0 else 0
+		#$CanvasLayer/ColorRect.update_vignette_radius(curr_radius);
+		viginette_active = false;
+	else:
+		$CanvasLayer/stressbar.value += 2.2 * delta
+		viginette_active = true;
+
+	
 	convertMins(int($Deadline.time_left))
 	
 	if $projectbar.value >= 100:
 		game_ended = true
 		get_tree().change_scene_to_file(\"res://scene/Victory.tscn\")
 
-	elif $stressbar.value >= 100:
+	elif $CanvasLayer/stressbar.value >= 100 or $Deadline.time_left <= 0:
 		game_ended = true
 		get_tree().change_scene_to_file(\"res://scene/GameOver.tscn\")
+		
+	# update the viginette while you're here.
 	
+		#curr_radius = 0.75 +  (100 - 50)* (0.5);
+
+
+func _on_safe_zone_body_entered(body: Node2D) -> void:
+	if body.name == \"Node2D\":
+		player_in_safe_zone = true;
+		
+func _on_safe_zone_body_exited(body: Node2D) -> void:
+	if body.name == \"Node2D\":
+		player_in_safe_zone = false;
 "
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_riodj"]
@@ -78,6 +116,12 @@ size = Vector2(3.981121, 4.689272)
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_iboqp"]
 texture = ExtResource("3_eglr7")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bj4t2"]
+shader = ExtResource("9_vnthd")
+shader_parameter/vignette_color = Color(0, 0, 0, 1)
+shader_parameter/radius = 1.5
+shader_parameter/softness = 0.45
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3fjca"]
 texture = ExtResource("4_wk7dr")
 
@@ -104,6 +148,17 @@ region = Rect2(120, 121, 33, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3fjca"]
 size = Vector2(28.311554, 2.0608559)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ypve7"]
+atlas = ExtResource("8_3fjca")
+region = Rect2(60, 147, 22, 10)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vnthd"]
+radius = 4.2307205
+height = 21.153625
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0h62n"]
+size = Vector2(264, 274)
 
 [node name="office" type="Node2D" unique_id=402338014]
 script = SubResource("GDScript_nwkqs")
@@ -215,37 +270,8 @@ offset_top = -23.0
 offset_right = 144.0
 text = "Project Completion:"
 
-[node name="stressbar" type="ProgressBar" parent="." unique_id=371012417]
-offset_left = 486.0
-offset_top = 25.0
-offset_right = 904.0
-offset_bottom = 52.0
-theme_override_styles/fill = SubResource("StyleBoxTexture_3fjca")
-
-[node name="Label" type="Label" parent="stressbar" unique_id=1069277733]
-layout_mode = 0
-offset_left = 9.0
-offset_top = -23.0
-offset_right = 61.0
-text = "Stress:"
-
-[node name="ProjectDue" type="Label" parent="." unique_id=1351075574]
-offset_left = 964.0
-offset_top = 2.0
-offset_right = 1079.0
-offset_bottom = 25.0
-theme_override_colors/font_color = Color(1, 0, 0, 1)
-text = "Project DUE in:"
-
-[node name="ProjectTime" type="Label" parent="ProjectDue" unique_id=1694906744]
-layout_mode = 0
-offset_left = 7.0
-offset_top = 26.0
-offset_right = 137.0
-offset_bottom = 54.0
-
 [node name="Deadline" type="Timer" parent="." unique_id=2139683144]
-wait_time = 300.0
+wait_time = 30.0
 one_shot = true
 autostart = true
 
@@ -253,6 +279,50 @@ autostart = true
 z_index = 10
 position = Vector2(178, 316)
 scale = Vector2(3, 3)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1686811523]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1060838138]
+material = SubResource("ShaderMaterial_bj4t2")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("10_ypve7")
+
+[node name="ProjectDue" type="Label" parent="CanvasLayer" unique_id=1351075574]
+z_index = 300
+offset_left = 964.0
+offset_top = 2.0
+offset_right = 1079.0
+offset_bottom = 25.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+text = "Project DUE in:"
+
+[node name="ProjectTime" type="Label" parent="CanvasLayer/ProjectDue" unique_id=1694906744]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 26.0
+offset_right = 137.0
+offset_bottom = 54.0
+
+[node name="stressbar" type="ProgressBar" parent="CanvasLayer" unique_id=371012417]
+offset_left = 486.0
+offset_top = 25.0
+offset_right = 904.0
+offset_bottom = 52.0
+theme_override_styles/fill = SubResource("StyleBoxTexture_3fjca")
+
+[node name="Label" type="Label" parent="CanvasLayer/stressbar" unique_id=1069277733]
+layout_mode = 0
+offset_left = 9.0
+offset_top = -23.0
+offset_right = 61.0
+text = "Stress:"
 
 [node name="Replay" type="TextureButton" parent="." unique_id=1409988507]
 offset_left = 922.0
@@ -279,9 +349,9 @@ shape = SubResource("CircleShape2D_iboqp")
 [node name="wordLabel" type="Label" parent="Replay/computer" unique_id=1675411237]
 custom_minimum_size = Vector2(50, 30)
 offset_left = -732.0
-offset_top = 215.0
+offset_top = 139.0
 offset_right = 76.0
-offset_bottom = 359.0
+offset_bottom = 283.0
 theme_override_font_sizes/font_size = 30
 text = "Go to your computer and press 'Enter' to start your job"
 horizontal_alignment = 1
@@ -343,6 +413,29 @@ position = Vector2(1.1947784, -7.336872)
 scale = Vector2(1.0000007, 1.0000001)
 shape = SubResource("RectangleShape2D_3fjca")
 
+[node name="doggie" type="Sprite2D" parent="." unique_id=560849508]
+position = Vector2(224, 184)
+scale = Vector2(3.4542465, 3.7818553)
+texture = SubResource("AtlasTexture_ypve7")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="doggie" unique_id=1128265018]
+visible = false
+position = Vector2(-1.2772639, 0.43761635)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="doggie/StaticBody2D" unique_id=1747083553]
+position = Vector2(1.2772591, -0.43761203)
+rotation = 1.5707964
+scale = Vector2(1.0000007, 1.0000001)
+shape = SubResource("CapsuleShape2D_vnthd")
+
+[node name="safe_zone" type="Area2D" parent="." unique_id=1422249195]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="safe_zone" unique_id=244049348]
+position = Vector2(200, 256)
+shape = SubResource("RectangleShape2D_0h62n")
+
 [connection signal="body_entered" from="Replay/computer" to="Replay/computer" method="_on_body_entered"]
 [connection signal="body_exited" from="Replay/computer" to="Replay/computer" method="_on_body_exited"]
 [connection signal="text_submitted" from="Replay/computer/userText" to="Replay/computer" method="_on_user_text_text_submitted"]
+[connection signal="body_entered" from="safe_zone" to="." method="_on_safe_zone_body_entered"]
+[connection signal="body_exited" from="safe_zone" to="." method="_on_safe_zone_body_exited"]
